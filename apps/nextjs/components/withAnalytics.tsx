@@ -16,7 +16,9 @@ export function withAnalytics<P extends Omit<AnalyticsProps, 'mode'>>(
           }
           {...props}
         />
+        <h1>HI</h1>
         <Component />
+        <div>hi</div>
       </>
     );
   }

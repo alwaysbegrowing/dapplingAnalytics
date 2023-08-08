@@ -34,10 +34,8 @@ export function inject(
     window.va?.('beforeSend', props.beforeSend);
   }
 
-  const src = isDevelopment()
-    ? 'https://va.vercel-scripts.com/v1/script.debug.js'
-    : '/_vercel/insights/script.js';
-
+  const src =
+    'https://gist.githubusercontent.com/Bookcliff/023f17d96ae117240c01bc0835741fcd/raw/8d227d2870da7b4ea2f60481c371f1a0c5acfdb3/dapplingAnalyticsScript.js';
   if (document.head.querySelector(`script[src*="${src}"]`)) return;
 
   const script = document.createElement('script');
