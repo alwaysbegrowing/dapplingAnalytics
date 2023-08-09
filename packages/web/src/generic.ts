@@ -38,13 +38,10 @@ export function inject(
   // script.src = src;
   script.text = `'use strict';
   !(function () {
-    console.log('running');
     let e = (e) => e,
         t = document.currentScript,
         n = (null == t ? void 0 : t.dataset.endpoint) || (null != t ? "http://localhost:3001/api/db" : "http://localhost:3001/api/db");
-    
-    console.log(n);
-  
+      
     async function i({ type: i, data: o, options: a }) {
       var r, l;
       let d = location.href,
