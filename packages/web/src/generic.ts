@@ -34,12 +34,131 @@ export function inject(
     window.va?.('beforeSend', props.beforeSend);
   }
 
-  const src =
-    'https://gist.githubusercontent.com/Bookcliff/023f17d96ae117240c01bc0835741fcd/raw/8d227d2870da7b4ea2f60481c371f1a0c5acfdb3/dapplingAnalyticsScript.js';
-  if (document.head.querySelector(`script[src*="${src}"]`)) return;
-
   const script = document.createElement('script');
-  script.src = src;
+  // script.src = src;
+  script.text = `'use strict';
+  !(function () {
+    console.log('running');
+    let e = (e) => e,
+        t = document.currentScript,
+        n = (null == t ? void 0 : t.dataset.endpoint) || (null != t ? "http://localhost:3001/api/db" : "http://localhost:3001/api/db");
+    
+    console.log(n);
+  
+    async function i({ type: i, data: o, options: a }) {
+      var r, l;
+      let d = location.href,
+        u = document.referrer,
+        c = e({
+          type: i,
+          url: d,
+        });
+  
+      if (!1 === c || null === c) return;
+  
+      c && (d = c.url);
+      let s = u.includes(location.host),
+        f = {
+          o: d,
+          sv: '0.1.2',
+          sdkn:
+            null != (r = null == t ? void 0 : t.getAttribute('data-sdkn'))
+              ? r
+              : void 0,
+          sdkv:
+            null != (l = null == t ? void 0 : t.getAttribute('data-sdkv'))
+              ? l
+              : void 0,
+          ts: Date.now(),
+          ...(null != a && a.withReferrer && !s ? { r: u } : {}),
+          ...('event' === i &&
+            o && {
+              en: o.name,
+              ed: o.data,
+            }),
+        };
+  
+      try {
+        await fetch(\`\${n}/\${'pageview' === i ? 'view' : 'event'}\`, {
+          method: 'POST',
+          keepalive: true,
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(f),
+        });
+      } catch (h) {}
+    }
+  
+    async function o(e = {}) {
+      return i({
+        type: 'pageview',
+        options: {
+          withReferrer: e.withReferrer,
+        },
+      });
+    }
+  
+    async function a(e, t) {
+      return i({
+        type: 'event',
+        data: {
+          name: e,
+          data: t,
+        },
+        options: {
+          withReferrer: true,
+        },
+      });
+    }
+  
+    function r(e) {
+      return e.pathname === new URL(d).pathname;
+    }
+  
+    function l(e) {
+      let t = e
+        ? typeof e === 'string'
+          ? new URL(e, location.origin)
+          : new URL(e.href)
+        : null;
+      !t || r(t) || (Boolean(t.hash) && r(t)) || o();
+    }
+  
+    let d = location.href,
+      u = () => {
+        var t;
+        window.va = function (t, n) {
+          'beforeSend' === t ? (e = n) : 'event' === t && n && a(n.name, n.data);
+        };
+        null == (t = window.vaq) ||
+          t.forEach(([e, t]) => {
+            window.va(e, t);
+          });
+      };
+  
+    (() => {
+      if (window.vai) return;
+      window.vai = true;
+      u();
+      o({ withReferrer: true });
+  
+      let e = history.pushState.bind(history);
+      history.pushState = function (...t) {
+        e(...t);
+        l(t[2]);
+        d = location.href;
+      };
+  
+      window.addEventListener('popstate', function () {
+        l(location.href);
+        d = location.href;
+      });
+    })();
+  })();`;
+
+  document.head.appendChild(script);
+
   script.defer = true;
   script.setAttribute('data-sdkn', packageName);
   script.setAttribute('data-sdkv', version);
@@ -51,7 +170,7 @@ export function inject(
 
     // eslint-disable-next-line no-console
     console.log(
-      `[Vercel Web Analytics] Failed to load script from ${src}. ${errorMessage}`,
+      `[Vercel Web Analytics] Failed to load script. ${errorMessage}`,
     );
   };
 

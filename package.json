@@ -18,6 +18,7 @@
   },
   "prettier": "@vercel/style-guide/prettier",
   "dependencies": {
+    "@next/eslint-plugin-next": "^12.3.0",
     "eslint": ">=8.24.0 <9.0.0",
     "lint-staged": "^13.2.2"
   },
