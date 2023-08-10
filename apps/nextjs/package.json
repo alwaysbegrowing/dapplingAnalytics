@@ -9,7 +9,7 @@
     "test:e2e:production": "NEXT_PUBLIC_ANALYTICS_MODE=production pnpm --filter nextjs... build && playwright test production"
   },
   "dependencies": {
-    "@vercel/analytics": "workspace:*",
+    "dappling-analytics": "workspace:*",
     "next": "^13.4.7",
     "react": "18.2.0",
     "react-dom": "18.2.0"

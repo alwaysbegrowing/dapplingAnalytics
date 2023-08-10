@@ -1,16 +1,9 @@
 import { name as packageName, version } from '../package.json';
-import { initQueue } from './queue';
-import type { AllowedPropertyValues, AnalyticsProps } from './types';
-import {
-  isBrowser,
-  parseProperties,
-  setMode,
-  isDevelopment,
-  isProduction,
-} from './utils';
+import type { AnalyticsProps } from './types';
+import { isBrowser } from './utils';
 
 /**
- * Injects the Vercel Web Analytics script into the page head and starts tracking page views. Read more in our [documentation](https://vercel.com/docs/concepts/analytics/package).
+ * Injects the dAppling Analytics script into the page head and starts tracking page views. Read more in our [documentation](https://docs.dappling.network).
  * @param [props] - Analytics options.
  * @param [props.mode] - The mode to use for the analytics script. Defaults to `auto`.
  *  - `auto` - Automatically detect the environment.  Uses `production` if the environment cannot be determined.
@@ -25,10 +18,6 @@ export function inject(
   },
 ): void {
   if (!isBrowser()) return;
-
-  setMode(props.mode);
-
-  initQueue();
 
   if (props.beforeSend) {
     window.va?.('beforeSend', props.beforeSend);
@@ -161,65 +150,21 @@ export function inject(
   script.setAttribute('data-sdkv', version);
 
   script.onerror = (): void => {
-    const errorMessage = isDevelopment()
-      ? 'Please check if any ad blockers are enabled and try again.'
-      : 'Be sure to enable Web Analytics for your project and deploy again. See https://vercel.com/docs/concepts/analytics/quickstart for more information.';
+    const errorMessage =
+      'Error - double check that your configs are correct and reach out to the dAppling dev team if you need help :)';
 
     // eslint-disable-next-line no-console
-    console.log(
-      `[Vercel Web Analytics] Failed to load script. ${errorMessage}`,
-    );
+    console.log(`[dAppling Analytics] Failed to load script. ${errorMessage}`);
   };
 
-  if (isDevelopment() && props.debug === false) {
+  if (props.debug === false) {
     script.setAttribute('data-debug', 'false');
   }
 
   document.head.appendChild(script);
 }
 
-/**
- * Tracks a custom event. Please refer to the [documentation](https://vercel.com/docs/concepts/analytics/custom-events) for more information on custom events.
- * @param name - The name of the event.
- * * Examples: `Purchase`, `Click Button`, or `Play Video`.
- * @param [properties] - Additional properties of the event. Nested objects are not supported. Allowed values are `string`, `number`, `boolean`, and `null`.
- */
-export function track(
-  name: string,
-  properties?: Record<string, AllowedPropertyValues>,
-): void {
-  if (!isBrowser()) {
-    // eslint-disable-next-line no-console
-    console.warn(
-      '[Vercel Web Analytics] Server-side execution of `track()` is currently not supported.',
-    );
-    return;
-  }
-
-  if (!properties) {
-    window.va?.('event', { name });
-    return;
-  }
-
-  try {
-    const props = parseProperties(properties, {
-      strip: isProduction(),
-    });
-
-    window.va?.('event', {
-      name,
-      data: props,
-    });
-  } catch (err) {
-    if (err instanceof Error && isDevelopment()) {
-      // eslint-disable-next-line no-console
-      console.error(err);
-    }
-  }
-}
-
 // eslint-disable-next-line import/no-default-export
 export default {
   inject,
-  track,
 };

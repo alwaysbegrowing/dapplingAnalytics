@@ -1,40 +1,7 @@
-import type { AllowedPropertyValues, Mode } from './types';
+import type { AllowedPropertyValues } from './types';
 
 export function isBrowser(): boolean {
   return typeof window !== 'undefined';
-}
-
-function detectEnvironment(): 'development' | 'production' {
-  try {
-    const env = process.env.NODE_ENV;
-    if (env === 'development' || env === 'test') {
-      return 'development';
-    }
-  } catch (e) {
-    // do nothing, this is okay
-  }
-  return 'production';
-}
-
-export function setMode(mode: Mode = 'auto'): void {
-  if (mode === 'auto') {
-    window.vam = detectEnvironment();
-    return;
-  }
-
-  window.vam = mode;
-}
-
-export function getMode(): Mode {
-  return window.vam || 'production';
-}
-
-export function isProduction(): boolean {
-  return getMode() === 'production';
-}
-
-export function isDevelopment(): boolean {
-  return getMode() === 'development';
 }
 
 function removeKey(

@@ -1,19 +1,18 @@
-![Analytics](https://github.com/vercel/analytics/blob/main/.github/banner.png)
+![Analytics](https://github.com/alwaysbegrowing/dappling.network/blob/main/public/meta/Profile-Social%20networks.png)
 
-<div align="center"><strong>Vercel Web Analytics</strong></div>
-<div align="center">Privacy-friendly, real-time traffic insights</div>
+<div align="center"><strong>dAppling Analytics</strong></div>
 <br />
 <div align="center">
-<a href="https://vercel.com/analytics">Website</a>
+<a href="https://dappling.network">Website</a>
 <span> · </span>
-<a href="https://vercel.com/docs/concepts/analytics/package">Documentation</a>
+<a href="https://docs.dappling.network">Documentation</a>
 <span> · </span>
-<a href="https://twitter.com/vercel">Twitter</a>
+<a href="https://twitter.com/dApplingNetwork">Twitter</a>
 </div>
 
 ## Overview
 
-`@vercel/analytics` allows you to track page views and custom events in your Next.js app or any other website that is deployed to Vercel.
+`dappling-analytics` is a fork of `@vercel/analytics` that allows you to track page views and custom events in your Next.js app or any other website that is deployed on dAppling.
 
 All page views are automatically tracked in your app.
 
@@ -21,16 +20,14 @@ This package does **not** track data in development mode.
 
 ## Quickstart
 
-1. Enable Vercel Web Analytics for a project in the [Vercel Dashboard](https://vercel.com/dashboard).
-2. Add the `@vercel/analytics` package to your project
-3. Inject the Analytics script to your app
+1. Add the `dappling-analytics` package to your project
+2. Inject the Analytics script to your app
 
    - If you are using **Next.js** or **React**, you can use the `<Analytics />` component to inject the script into your app.
-   - For other frameworks, you can use the `inject` function add the tracking script to your app.
-   - If you want to use Vercel Web Analytics on a static site without npm, follow the instructions in the [documentation](https://vercel.com/docs/concepts/analytics/quickstart).
+   - For other frameworks, you can use the `inject` function to add the tracking script to your app.
 
-4. Deploy your app to Vercel and see data flowing in.
+3. Re-deploy your app [dAppling](https://dappling.network) and see data flowing in.
 
 ## Documentation
 
-Find more details about this package in our [documentation](https://vercel.com/docs/concepts/analytics/quickstart).
+Find more details about this package in our [documentation](https://docs.dappling.network).

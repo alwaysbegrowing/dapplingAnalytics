@@ -1,13 +1,13 @@
 {
-  "name": "@vercel/analytics",
+  "name": "dappling-analytics",
   "version": "1.0.1",
-  "description": "Gain real-time traffic insights with Vercel Web Analytics",
+  "description": "Gain real-time traffic insights with dAppling Analytics",
   "keywords": [
     "analytics",
-    "vercel"
+    "dappling"
   ],
   "repository": {
-    "url": "github:vercel/analytics",
+    "url": "github:alwaysbegrowing/analytics",
     "directory": "packages/web"
   },
   "license": "MPL-2.0",
@@ -47,7 +47,7 @@
   },
   "eslintConfig": {
     "extends": [
-      "@vercel/eslint-config"
+      "dappling-analytics/eslint-config"
     ],
     "rules": {
       "tsdoc/syntax": "off"

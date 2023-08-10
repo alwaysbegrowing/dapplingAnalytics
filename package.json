@@ -1,14 +1,14 @@
 {
   "name": "dappling-analytics",
   "version": "1.0.0",
-  "description": "![Analytics](https://github.com/vercel/analytics/blob/main/.github/banner.png)",
-  "homepage": "https://github.com/vercel/analytics#readme",
+  "description": "Fun analytics",
+  "homepage": "https://github.com/alwaysbegrowing/dapplingAnalytics#readme",
   "bugs": {
-    "url": "https://github.com/vercel/analytics/issues"
+    "url": "https://github.com/alwaysbegrowing/dapplingAnalytics/issues"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vercel/analytics.git"
+    "url": "git+https://github.com/alwaysbegrowing/dapplingAnalytics.git"
   },
   "license": "MPL-2.0",
   "author": "",

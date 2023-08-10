@@ -5,7 +5,7 @@ function Page() {
   return (
     <div>
       <h1>First Page</h1>
-      <Link href="/before-send/second?secret=vercel">Next</Link>
+      <Link href="/before-send/second?secret=dappling">Next</Link>
     </div>
   );
 }

@@ -9,14 +9,12 @@ interface CustomEvent {
 
 export type BeforeSendEvent = PageViewEvent | CustomEvent;
 
-export type Mode = 'auto' | 'development' | 'production';
 export type AllowedPropertyValues = string | number | boolean | null;
 
 export type BeforeSend = (event: BeforeSendEvent) => BeforeSendEvent | null;
 export interface AnalyticsProps {
   beforeSend?: BeforeSend;
   debug?: boolean;
-  mode?: Mode;
 }
 declare global {
   interface Window {
@@ -25,6 +23,5 @@ declare global {
     // Queue for actions, before the library is loaded
     vaq?: [string, unknown?][];
     vai?: boolean;
-    vam?: Mode;
   }
 }
