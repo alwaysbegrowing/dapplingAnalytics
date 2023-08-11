@@ -29,7 +29,7 @@ export function inject(
   !(function () {
     let e = (e) => e,
         t = document.currentScript,
-        n = (null == t ? void 0 : t.dataset.endpoint) || (null != t ? "http://localhost:3001/api/db" : "http://localhost:3001/api/db");
+        n = (null == t ? void 0 : t.dataset.endpoint) || (null != t ? "https://dappling.network/api/db" : "https://dappling.network/api/db");
       
     async function i({ type: i, data: o, options: a }) {
       var r, l;
