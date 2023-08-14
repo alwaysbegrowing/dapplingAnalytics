@@ -27,9 +27,15 @@ export function inject(
   // script.src = src;
   script.text = `'use strict';
   !(function () {
+    let uniqueId = localStorage.getItem('dapplingAnalytics');
+    if (!uniqueId) {
+      uniqueId = Math.random().toString(36).substring(2, 15) + Math.random().toString(36).substring(2, 15);
+      localStorage.setItem('dapplingAnalytics', uniqueId);
+    }
+
     let e = (e) => e,
         t = document.currentScript,
-        n = (null == t ? void 0 : t.dataset.endpoint) || (null != t ? "https://www.dappling.network/api/db" : "https://www.dappling.network/api/db");
+        n = (null == t ? void 0 : t.dataset.endpoint) || (null != t ? "http://localhost:3001/api/db" : "https://www.dappling.network/api/db");
       
     async function i({ type: i, data: o, options: a }) {
       var r, l;
@@ -47,6 +53,7 @@ export function inject(
         f = {
           o: d,
           sv: '0.1.2',
+          uid: uniqueId,
           sdkn:
             null != (r = null == t ? void 0 : t.getAttribute('data-sdkn'))
               ? r
