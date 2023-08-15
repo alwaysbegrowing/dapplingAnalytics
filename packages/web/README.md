@@ -12,7 +12,7 @@
 
 ## Overview
 
-`dappling-analytics` is a fork of `@vercel/analytics` that allows you to track page views and custom events in your Next.js app or any other website that is deployed on dAppling.
+`dappling-analytics` is a fork of `@vercel/analytics` that allows you to track page views and users in your Next.js app or any other website that is deployed on dAppling.
 
 All page views are automatically tracked in your app.
 
@@ -26,7 +26,7 @@ This package does **not** track data in development mode.
    - If you are using **Next.js** or **React**, you can use the `<Analytics />` component to inject the script into your app.
    - For other frameworks, you can use the `inject` function to add the tracking script to your app.
 
-3. Re-deploy your app [dAppling](https://dappling.network) and see data flowing in.
+3. Re-deploy your app [dAppling](https://dappling.network) and see your garden growing.
 
 ## Documentation
 
