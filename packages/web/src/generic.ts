@@ -35,7 +35,7 @@ export function inject(
 
     let e = (e) => e,
         t = document.currentScript,
-        n = (null == t ? void 0 : t.dataset.endpoint) || (null != t ? "http://localhost:3001/api/db" : "https://www.dappling.network/api/db");
+        n = (null == t ? void 0 : t.dataset.endpoint) || (null != t ? "https://www.dappling.network/api/db" : "https://www.dappling.network/api/db");
       
     async function i({ type: i, data: o, options: a }) {
       var r, l;
