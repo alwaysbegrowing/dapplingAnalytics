@@ -22,11 +22,7 @@ This package does **not** track data in development mode.
 
 1. Add the `dappling-analytics` package to your project
 2. Inject the Analytics script to your app
-
-   - If you are using **Next.js** or **React**, you can use the `<Analytics />` component to inject the script into your app.
-   - For other frameworks, you can use the `inject` function to add the tracking script to your app.
-
-3. Re-deploy your app [dAppling](https://dappling.network) and see your garden growing.
+3. Re-deploy your app to [dAppling](https://dappling.network) and see your garden growing.
 
 ## Documentation
 
