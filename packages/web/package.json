@@ -42,7 +42,6 @@
     "dev": "tsup --watch",
     "lint": "eslint .",
     "lint-fix": "eslint . --fix",
-    "publish": "pnpm run build && npm publish",
     "test": "jest",
     "type-check": "tsc --noEmit"
   },
