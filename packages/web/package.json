@@ -1,13 +1,13 @@
 {
   "name": "dappling-analytics",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Gain real-time traffic insights with dAppling Analytics",
   "keywords": [
     "analytics",
     "dappling"
   ],
   "repository": {
-    "url": "github:alwaysbegrowing/analytics",
+    "url": "github:alwaysbegrowing/dappling-analytics",
     "directory": "packages/web"
   },
   "license": "MPL-2.0",
