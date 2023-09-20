@@ -24,7 +24,7 @@ This package does **not** track data in development mode.
 
 ```bash
 npm i dappling-analytics
-yarn install dappling-analytics
+yarn add dappling-analytics
 ```
 
 2. Inject the Analytics script to your app
