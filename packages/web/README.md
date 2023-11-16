@@ -1,5 +1,6 @@
-![Analytics](https://github.com/alwaysbegrowing/dappling.network/blob/main/public/meta/Profile-Social%20networks.png)
-
+<p align="center">
+  <img src="https://github.com/alwaysbegrowing/dappling.network/blob/main/public/meta/Profile-Social%20networks.png" height="128" />
+</p>
 <div align="center"><strong>dAppling Analytics</strong></div>
 <br />
 <div align="center">
