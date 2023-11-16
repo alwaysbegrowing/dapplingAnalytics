@@ -63,7 +63,7 @@ export function inject(
               ? l
               : void 0,
           ts: Date.now(),
-          ...(a.withReferrer && !s ? { r: u } : {}),
+          ...(!s ? { r: u } : {}),
           ...('event' === i &&
             o && {
               en: o.name,
