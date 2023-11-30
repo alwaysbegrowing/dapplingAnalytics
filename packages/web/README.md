@@ -1,4 +1,7 @@
-![Analytics](https://github.com/alwaysbegrowing/dappling.network/blob/main/public/meta/Profile-Social%20networks.png)
+<p align="center">
+  <img width="64"src="https://github.com/alwaysbegrowing/dappling/blob/main/apps/dappling.network/public/meta/Profile-Social%20networks.png">
+</p>
+
 
 <div align="center"><strong>dAppling Analytics</strong></div>
 <br />
@@ -31,6 +34,17 @@ yarn add dappling-analytics
 
 ```
 import { Analytics } from 'dappling-analytics/react'
+
+// ...
+
+export default function App() {
+  return (
+    <div>
+     <Analytics />
+     <h1>Hello Earth</h1>
+   </div>
+  );
+}
 ```
 
 3. Re-deploy your app to [dAppling](https://dappling.network) and see your garden growing.
